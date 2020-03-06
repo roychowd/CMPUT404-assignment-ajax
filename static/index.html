@@ -263,13 +263,13 @@
 
       // Add the application specific mouse listeners!
       //XXX: TODO Make these prettier!
-      // made it prettier with magenta, emerald green, abd red violet
+      // made it prettier with orange, emerald green, abd red violet
       mouse.mousedowners.push(function(x, y, clicked, e) {
         addEntityWithoutName({ x: x, y: y, colour: "#FF00FF" });
       });
 
       mouse.mouseuppers.push(function(x, y, clicked, e) {
-        addEntityWithoutName({ x: x, y: y, colour: "#C71585" });
+        addEntityWithoutName({ x: x, y: y, colour: "orange" });
       });
 
       mouse.mousedraggers.push(function(x, y, clicked, e) {
@@ -284,7 +284,7 @@
           // drawFrame();
         }
         sendJSONXMLHTTPRequest("/world", null, callback);
-        // drawFrame(); 
+        drawFrame(); 
       }
 
       // 30 frames per second
