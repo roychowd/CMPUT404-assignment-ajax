@@ -153,6 +153,8 @@
         world[entity] = data;
         drawNextFrame(); // (but should we?)
         //XXX: Send a XHTML Request that updates the entity you just  modified!
+        // function sendJSONXMLHTTPRequest(url, objects, callback)
+        // call back is empty!!
         sendJSONXMLHTTPRequest("/entity/" + entity, data, () => {});
       }
 
@@ -279,10 +281,10 @@
         function callback(x) {
           world = x;
           drawNextFrame();
-          drawFrame();
+          // drawFrame();
         }
         sendJSONXMLHTTPRequest("/world", null, callback);
-        // drawFrame(); - not needed?
+        // drawFrame(); 
       }
 
       // 30 frames per second
