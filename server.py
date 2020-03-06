@@ -79,6 +79,8 @@ def flask_post_json():
 @app.route("/")
 def hello():
     '''Return something coherent here.. perhaps redirect to /static/index.html '''
+    # redirect
+    # used url for https://flask.palletsprojects.com/en/1.1.x/quickstart/#redirects-and-errors
     return redirect(flask.url_for('static', filename="index.html"))
     # return None
 
@@ -86,10 +88,11 @@ def hello():
 @app.route("/entity/<entity>", methods=['POST', 'PUT'])
 def update(entity):
     '''update the entities via this interface'''
-    for k, v in flask_post_json().items():
-        myWorld.update(entity, k, v)
+    for key, value in flask_post_json().items():
+        # update entites
+        myWorld.update(entity, key, value)
 
-    '''update the entities via this interface'''
+    # return json myworld enetity
     return flask.jsonify(myWorld.get(entity))
     # return None
 
@@ -97,6 +100,7 @@ def update(entity):
 @app.route("/world", methods=['POST', 'GET'])
 def world():
     '''you should probably return the world here'''
+    # return json world
     return flask.jsonify(myWorld.world())
 
 
@@ -104,6 +108,7 @@ def world():
 def get_entity(entity):
     '''This is the GET version of the entity interface, return a representation of the entity'''
     # return None
+    # return json enetiy of world
     return flask.jsonify(myWorld.get(entity))
 
 
@@ -111,7 +116,9 @@ def get_entity(entity):
 def clear():
     '''Clear the world out!'''
     # return None
+    # clear world
     myWorld.clear()
+    # return json of world
     return flask.jsonify(myWorld.world())
 
 

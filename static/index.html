@@ -40,19 +40,23 @@
               if (xhr.status == 200) {
                 //XXX: parse some JSON from the request!
                 //XXX: Pass the data to the callback!
-                callback(JSON.parse(xhr.responseText));
+                thedata = JSON.parse(xhr.responseText);
+                callback(thedata);
               }
             } catch (e) {
               alert("Error: " + e.name);
             }
           }
         };
+
+        // utilized this resource https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
         //XXX: POST to a URL
         xhr.open("POST", url, true);
         //XXX: set the mimetype and the accept headers!
         xhr.setRequestHeader("Content-Type", "application/json");
         // Remember to use application/json ! -- thank u
         xhr.setRequestHeader("Accept", "application/json");
+        // send objects
         xhr.send(JSON.stringify(objects));
       }
 
@@ -76,8 +80,9 @@
             2.0 * Math.PI,
             false
           );
-          // add fill https://www.w3schools.com/tags/canvas_fill.asp
+          // add fill to fill cirlce https://www.w3schools.com/tags/canvas_fill.asp
           fill();
+          // stroke
           stroke();
         }
       }
